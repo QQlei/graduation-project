@@ -61,7 +61,6 @@ public class CollectServiceImpl extends CacheService implements CollectService {
      */
     @Override
     public List<CollectSummary> getCollects(String type, Long userId, Pageable pageable, Long favoritesId, Long specUserId) {
-        // TODO Auto-generated method stub
         Page<CollectView> views = null;
         if ("my".equals(type)) {
             List<Long> userIds = followRepository.findMyFollowIdByUserId(userId);
