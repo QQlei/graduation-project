@@ -99,7 +99,6 @@ public class UserController extends BaseController {
 			}
 			return new ResponseData(ExceptionMsg.SUCCESS, preUrl);
 		} catch (Exception e) {
-			// TODO: handle exception
 			logger.error("login failed, ", e);
 			return new ResponseData(ExceptionMsg.FAILED);
 		}
@@ -128,7 +127,6 @@ public class UserController extends BaseController {
 			configService.saveConfig(user.getId(),String.valueOf(favorites.getId()));	
 			getSession().setAttribute(Const.LOGIN_SESSION_KEY, user);
 		} catch (Exception e) {
-			// TODO: handle exception
 			logger.error("create user failed, ", e);
 			return result(ExceptionMsg.FAILED);
 		}
@@ -142,7 +140,6 @@ public class UserController extends BaseController {
 		try {
 			favorites = favoritesRepository.findByUserId(getUserId());
 		} catch (Exception e) {
-			// TODO: handle exception
 			logger.error("getFavorites failed, ", e);
 		}
 		return favorites;
@@ -209,7 +206,6 @@ public class UserController extends BaseController {
             userRepository.setOutDateAndValidataCode(outDate+"", secretKey, email);
             String key =email + "$" + date + "$" + secretKey;
             String digitalSignature = MD5Util.encrypt(key);// 数字签名
-//            String basePath = this.getRequest().getScheme() + "://" + this.getRequest().getServerName() + ":" + this.getRequest().getServerPort() + this.getRequest().getContextPath() + "/newPassword";
             String resetPassHref = forgotpasswordUrl + "?sid="
                     + digitalSignature +"&email="+email;
             String emailContent = MessageUtil.getMessage(mailContent, resetPassHref);
@@ -221,7 +217,6 @@ public class UserController extends BaseController {
 	        helper.setText(emailContent, true);
 	        mailSender.send(mimeMessage);
 		} catch (Exception e) {
-			// TODO: handle exception
 			logger.error("sendForgotPasswordEmail failed, ", e);
 			return result(ExceptionMsg.FAILED);
 		}
@@ -251,7 +246,6 @@ public class UserController extends BaseController {
             }
             userRepository.setNewPassword(getPwd(newpwd), email);
 		} catch (Exception e) {
-			// TODO: handle exception
 			logger.error("setNewPassword failed, ", e);
 			return result(ExceptionMsg.FAILED);
 		}
@@ -279,7 +273,6 @@ public class UserController extends BaseController {
 				return result(ExceptionMsg.PassWordError);
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
 			logger.error("updatePassword failed, ", e);
 			return result(ExceptionMsg.FAILED);
 		}
@@ -301,7 +294,6 @@ public class UserController extends BaseController {
 			getSession().setAttribute(Const.LOGIN_SESSION_KEY, user);
 			return new ResponseData(ExceptionMsg.SUCCESS, introduction);
 		} catch (Exception e) {
-			// TODO: handle exception
 			logger.error("updateIntroduction failed, ", e);
 			return new ResponseData(ExceptionMsg.FAILED);
 		}
@@ -332,7 +324,6 @@ public class UserController extends BaseController {
 			getSession().setAttribute(Const.LOGIN_SESSION_KEY, loginUser);
 			return new ResponseData(ExceptionMsg.SUCCESS, userName);
 		} catch (Exception e) {
-			// TODO: handle exception
 			logger.error("updateUserName failed, ", e);
 			return new ResponseData(ExceptionMsg.FAILED);
 		}

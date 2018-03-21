@@ -7,8 +7,6 @@ import com.graduation.utils.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
-
 @Service("favoritesService")
 public class FavoritesServiceImpl implements FavoritesService{
 	

@@ -35,9 +35,6 @@ public class ScheduledTasks {
 	@Autowired
 	private CacheService cacheService;
 
-	@Autowired
-//	private RedisService redisService;
-
 	/**
 	 * 回收站定时
 	 */

@@ -94,7 +94,6 @@ public class CollectController extends BaseController{
 				return result(ExceptionMsg.CollectExist);
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
 			logger.error("collect failed, ", e);
 			return result(ExceptionMsg.FAILED);
 		}
@@ -239,7 +238,6 @@ public class CollectController extends BaseController{
 		try {
 			collectService.like(getUserId(), id);
 		} catch (Exception e) {
-			// TODO: handle exception
 			logger.error("文章点赞或者取消点赞异常：",e);
 		}
 		return result();
@@ -350,10 +348,7 @@ public class CollectController extends BaseController{
 			}
 		}
 	}
-	
-	
-	
-	
+
 	
 	@RequestMapping(value="/searchMy/{key}")
 	public List<CollectSummary> searchMy(Model model,@RequestParam(value = "page", defaultValue = "0") Integer page,
@@ -390,6 +385,5 @@ public class CollectController extends BaseController{
 		maps.put("praiseCount",praiseCount);
 		return maps;
 	}
-	
 	
 }

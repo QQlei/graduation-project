@@ -78,7 +78,6 @@ public class HtmlUtil {
 				}
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
 			logger.error("getPageImg失败,url:"+url,e);
 		}
 		return imgUrl;

@@ -1,0 +1,29 @@
+######  db config start ###### 
+spring:
+   datasource:
+      url: jdbc:mysql://127.0.0.1/favorites?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC&useSSL=true
+      username: root
+      password: 123456
+      driver-class-name: com.mysql.jdbc.Driver
+
+logging:
+   file:/usr/local/logs/favorites-web.log
+   level:
+      com:
+         favorites: INFO
+      org:
+         springframework:
+            web: INFO
+         hibernate: ERROR
+######   logging config end ###### 
+
+######   favorites config start ###### 
+favorites:
+   file:
+      save:
+         path: static/file/logo/
+      access:
+         url: http://106.15.182.108:8080/file/logo/
+   base:
+      path: http://106.15.182.108:8080/
+######   favorites config end ###### 

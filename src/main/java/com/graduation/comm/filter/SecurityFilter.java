@@ -27,7 +27,6 @@ public class SecurityFilter implements Filter {
 
 	@Override
 	public void init(FilterConfig arg0) throws ServletException {
-		// TODO Auto-generated method stub
 		GreenUrlSet.add("/login");
 		GreenUrlSet.add("/register");
 		GreenUrlSet.add("/index");
@@ -39,7 +38,6 @@ public class SecurityFilter implements Filter {
 	@Override
 	public void doFilter(ServletRequest srequest, ServletResponse sresponse, FilterChain filterChain)
 			throws IOException, ServletException {
-		// TODO Auto-generated method stub
 		HttpServletRequest request = (HttpServletRequest) srequest;
 		String uri = request.getRequestURI();
 		if (request.getSession().getAttribute(Const.LOGIN_SESSION_KEY) == null) {
@@ -187,7 +185,7 @@ public class SecurityFilter implements Filter {
 
 	@Override
 	public void destroy() {
-		// TODO Auto-generated method stub
+
 	}
 
 	public  String codeToString(String str) {

@@ -1,6 +1,11 @@
 package com.graduation.domain.result;
 
+import lombok.Getter;
+import lombok.Setter;
+
 public class ResponseData extends Response{
+    @Setter
+    @Getter
     private Object data;
 
     public ResponseData(Object data) {
@@ -22,14 +27,6 @@ public class ResponseData extends Response{
 
     public ResponseData(ExceptionMsg msg, Object data) {
         super(msg);
-        this.data = data;
-    }
-
-    public Object getData() {
-        return data;
-    }
-
-    public void setData(Object data) {
         this.data = data;
     }
 
