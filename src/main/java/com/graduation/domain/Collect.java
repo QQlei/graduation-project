@@ -14,6 +14,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Transient;
 
+/**
+ * 收藏
+ */
 @Entity
 @Data
 public class Collect  implements Serializable {

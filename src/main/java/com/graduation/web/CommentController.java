@@ -51,7 +51,7 @@ public class CommentController extends BaseController{
 				if (null != user) {
 					comment.setReplyUserId(user.getId());
 				} else {
-					logger.info("为找到匹配：" + atUsers.get(0) + "的用户.");
+					logger.info("未找到匹配：" + atUsers.get(0) + "的用户.");
 				}
 				String content=comment.getContent().substring(0,comment.getContent().indexOf("@"));
 				if(StringUtils.isBlank(content)){
