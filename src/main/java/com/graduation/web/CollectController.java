@@ -57,13 +57,13 @@ public class CollectController extends BaseController{
 	private CacheService cacheService;
 
 	/**
-	 * 随便看看  added by chenzhimin
+	 * 随便看看
 	 */
 	@Autowired
 	private LookAroundService lookAroundService;
 
 	/**
-	 * 浏览记录  added by chenzhimin
+	 * 浏览记录
 	 */
 	@Autowired
 	private LookRecordService lookRecordService;
