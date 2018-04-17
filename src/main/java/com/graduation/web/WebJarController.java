@@ -20,7 +20,6 @@ public class WebJarController {
     @RequestMapping("/webjarslocator/{webjar}/**")
     public ResponseEntity locateWebjarAsset(@PathVariable String webjar, HttpServletRequest request) {
         try {
-
             String mvcPrefix = "/webjarslocator/" + webjar + "/";
             String mvcPath = (String) request.getAttribute(HandlerMapping.PATH_WITHIN_HANDLER_MAPPING_ATTRIBUTE);
             String fullPath = assetLocator.getFullPath(webjar, mvcPath.substring(mvcPrefix.length()));

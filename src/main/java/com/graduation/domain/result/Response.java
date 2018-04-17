@@ -1,21 +1,18 @@
 package com.graduation.domain.result;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Response {
 	/** 返回信息码*/
-	@Setter
-	@Getter
 	private String rspCode="000000";
 	/** 返回信息内容*/
-	@Setter
-	@Getter
 	private String rspMsg="操作成功";
 
-	public Response() {
-	}
-	
 	public Response(ExceptionMsg msg){
 		this.rspCode=msg.getCode();
 		this.rspMsg=msg.getMsg();
@@ -24,11 +21,6 @@ public class Response {
 	public Response(String rspCode) {
 		this.rspCode = rspCode;
 		this.rspMsg = "";
-	}
-
-	public Response(String rspCode, String rspMsg) {
-		this.rspCode = rspCode;
-		this.rspMsg = rspMsg;
 	}
 
 	@Override

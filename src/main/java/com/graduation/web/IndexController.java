@@ -22,10 +22,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
@@ -58,7 +55,7 @@ public class IndexController extends BaseController{
 	@Autowired
 	private LookAroundService lookAroundService;
 
-	@RequestMapping(value="/index",method=RequestMethod.GET)
+	@GetMapping(value="/index")
 	@LoggerManage(description="首页")
 	public String index(Model model){
 		IndexCollectorView indexCollectorView = collectorService.getCollectors();
@@ -69,8 +66,8 @@ public class IndexController extends BaseController{
 		}
 		return "index";
 	}
-	
-	@RequestMapping(value="/",method=RequestMethod.GET)
+
+	@GetMapping(value="/")
 	@LoggerManage(description="登陆后首页")
 	public String home(Model model) {
 		long size= collectRepository.countByUserIdAndIsDelete(getUserId(), IsDelete.NO);
@@ -88,39 +85,6 @@ public class IndexController extends BaseController{
 		logger.info("collect size="+size+" userID="+getUserId());
 		return "home";
 	}
-
-	/**
-	 * 随便看看 标准模式显示  added by chenzhimin 暂时去掉，以后优化更新
-	 * @return
-	 */
-	/*@RequestMapping(value="/lookAround/standard/{category}")
-	@LoggerManage(description="随便看看页面")
-	public String lookAroundStandard(Model model,@RequestParam(value = "page", defaultValue = "0") Integer page,
-							 @RequestParam(value = "size", defaultValue = "15") Integer size,
-							 @PathVariable("category") String category) {
-
-		Sort sort = new Sort(Sort.Direction.DESC, "id");
-		Pageable pageable = new PageRequest(page, size, sort);
-		model.addAttribute("category", category);
-		model.addAttribute("type", "lookAround");
-		Favorites favorites = new Favorites();
-		List<CollectSummary> collects = null;
-		List<CollectSummary> fivecollects = lookAroundService.scrollFiveCollect();
-		List<UserIsFollow> fiveUsers = lookAroundService.queryFiveUser(this.getUserId());
-
-		collects =lookAroundService.queryCollectExplore(pageable,getUserId(),category);
-		User user = super.getUser();
-		if(null != user){
-			model.addAttribute("user",user);
-		}
-		model.addAttribute("fiveCollects", fivecollects);
-		model.addAttribute("fiveUsers", fiveUsers);
-		model.addAttribute("collects", collects);
-		model.addAttribute("favorites", favorites);
-		model.addAttribute("userId", getUserId());
-		model.addAttribute("size", collects.size());
-		return "lookAround/standard";
-	}*/
 
 	/**
 	 * 随便看看 简单模式显示  added by JiangL
@@ -155,14 +119,14 @@ public class IndexController extends BaseController{
 		return "lookAround/simple";
 	}
 
-	@RequestMapping(value="/login",method=RequestMethod.GET)
+	@GetMapping(value="/login")
 	@LoggerManage(description="登陆页面")
 	public String login() {
 
 		return "login";
 	}
-	
-	@RequestMapping(value="/register",method=RequestMethod.GET)
+
+	@GetMapping(value="/register")
 	@LoggerManage(description="注册页面")
 	public String regist() {
 		return "register";
@@ -204,8 +168,8 @@ public class IndexController extends BaseController{
 		model.addAttribute("user", user);
 		return "favorites/feedback";
 	}
-	
-	@RequestMapping(value="/collect",method=RequestMethod.GET)
+
+	@GetMapping(value="/collect")
 	@LoggerManage(description="收藏页面")
 	public String collect(Model model) {
 		List<Favorites> favoritesList = favoritesRepository.findByUserId(getUserId());
@@ -217,8 +181,8 @@ public class IndexController extends BaseController{
 		model.addAttribute("followList",followList);
 		return "collect";
 	}
-	
-	@RequestMapping(value="/logout",method=RequestMethod.GET)
+
+	@GetMapping(value="/logout")
 	@LoggerManage(description="登出")
 	public String logout(HttpServletResponse response,Model model) {
 		getSession().removeAttribute(Const.LOGIN_SESSION_KEY);
@@ -232,13 +196,13 @@ public class IndexController extends BaseController{
 		return "index";
 	}
 
-	@RequestMapping(value="/forgotPassword",method=RequestMethod.GET)
+	@GetMapping(value="/forgotPassword")
 	@LoggerManage(description="忘记密码页面")
 	public String forgotPassword() {
 		return "user/forgotpassword";
 	}
-	
-	@RequestMapping(value="/newPassword",method=RequestMethod.GET)
+
+	@GetMapping(value="/newPassword")
 	public String newPassword(String email) {
 		return "user/newpassword";
 	}

@@ -6,6 +6,7 @@ import com.graduation.domain.result.ExceptionMsg;
 import com.graduation.domain.result.Response;
 import com.graduation.service.FeedbackService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,7 +25,7 @@ public class FeedbackController extends BaseController{
      * @date 2018年3月23日
      * @return
      */
-    @RequestMapping(value="/save",method = RequestMethod.POST)
+    @PostMapping(value="/save")
     public Response save(Feedback feedback) {
         try {
         feedbackService.saveFeeddback(feedback,getUserId());

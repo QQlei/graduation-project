@@ -73,7 +73,7 @@ public class CollectController extends BaseController{
 	 * @param collect
 	 * @return
 	 */
-	@RequestMapping(value = "/collect", method = RequestMethod.POST)
+	@PostMapping(value = "/collect")
 	@LoggerManage(description="文章收集")
 	public Response collect(Collect collect) {
 		try {
@@ -100,7 +100,7 @@ public class CollectController extends BaseController{
 		return result();
 	}
 
-	@RequestMapping(value="/getCollectLogoUrl",method=RequestMethod.POST)
+	@PostMapping(value="/getCollectLogoUrl")
 	@LoggerManage(description="获取收藏页面的LogoUrl")
 	public String getCollectLogoUrl(String url){
 		if(StringUtils.isNotBlank(url)){
@@ -118,7 +118,7 @@ public class CollectController extends BaseController{
 	/**
 	 * 根据收藏的文章标题和描述推荐收藏夹
 	 */
-	@RequestMapping(value="/getFavoriteResult",method=RequestMethod.POST)
+	@PostMapping(value="/getFavoriteResult")
 	@LoggerManage(description="获取推荐收藏夹")
 	public Map<String,Object> getFavoriteResult(String title,String description){
 		Long result = null;

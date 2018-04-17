@@ -11,6 +11,7 @@ import com.graduation.repository.CommentRepository;
 import com.graduation.repository.NoticeRepository;
 import com.graduation.utils.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -41,7 +42,7 @@ public class NoticeController extends BaseController{
 	 * @param comment
 	 * @return
 	 */
-	@RequestMapping(value = "/reply", method = RequestMethod.POST)
+	@PostMapping(value = "/reply")
 	public Response reply(Comment comment) {
 		logger.info("reply begin");
 		try {

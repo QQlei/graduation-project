@@ -3,6 +3,7 @@ package com.graduation.domain;
 import com.graduation.domain.enums.CollectType;
 import com.graduation.domain.enums.IsDelete;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
@@ -47,7 +48,7 @@ public class Collect  implements Serializable {
 	@Column(nullable = true)
 	private String charset;
 
-	@Enumerated(EnumType.STRING) 
+	@Enumerated(EnumType.STRING)
 	@Column(nullable = true)
 	private CollectType type;
 

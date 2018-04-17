@@ -188,7 +188,7 @@ public class SecurityFilter implements Filter {
 
 	}
 
-	public  String codeToString(String str) {
+	private   String codeToString(String str) {
 		String strString = str;
 		try {
 			byte tempB[] = strString.getBytes("ISO-8859-1");
@@ -199,7 +199,7 @@ public class SecurityFilter implements Filter {
 		}
 	}
 
-	public String getRef(HttpServletRequest request){
+	private String getRef(HttpServletRequest request){
 		String referer = "";
 		String param = this.codeToString(request.getQueryString());
 		if(StringUtils.isNotBlank(request.getContextPath())){

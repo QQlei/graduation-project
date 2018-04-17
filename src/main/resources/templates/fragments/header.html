@@ -4,252 +4,256 @@
 
 <body>
 
-     <header class="topnavbar-wrapper" th:fragment="header">
+<header class="topnavbar-wrapper" th:fragment="header">
 
-      <nav class="navbar topnavbar" role="navigation">
+    <nav class="navbar topnavbar" role="navigation">
 
-         <div class="navbar-header">
+        <div class="navbar-header">
 
             <a class="navbar-brand" href="/index">
 
-               <div class="brand-logo">
+                <div class="brand-logo">
 
-                  <img class="img-responsive" alt="App Logo" th:src="@{/img/logo.png}"  /></div>
+                    <img class="img-responsive" alt="App Logo" th:src="@{/img/logo.png}"/></div>
 
-               <div class="brand-logo-collapsed">
+                <div class="brand-logo-collapsed">
 
-                  <img class="img-responsive" alt="App Logo" th:src="@{/img/logo.png}" /></div>
+                    <img class="img-responsive" alt="App Logo" th:src="@{/img/logo.png}"/></div>
 
             </a>
 
-         </div>
+        </div>
 
-         <div class="nav-wrapper">
+        <div class="nav-wrapper">
 
             <ul class="nav navbar-nav">
 
-               <li>
+                <li>
 
-                  <a title="缩小/扩大侧栏" class="hidden-xs" data-toggle-state="aside-collapsed" href="#"> <em class="fa fa-navicon"></em>
+                    <a title="缩小/扩大侧栏" class="hidden-xs" data-toggle-state="aside-collapsed" href="#"> <em
+                            class="fa fa-navicon"></em>
 
-                  </a>
+                    </a>
 
-                  <a title="缩小/扩大侧栏" class="visible-xs sidebar-toggle" data-no-persist="true" data-toggle-state="aside-toggled" href="#"> <em class="fa fa-navicon"></em>
+                    <a title="缩小/扩大侧栏" class="visible-xs sidebar-toggle" data-no-persist="true"
+                       data-toggle-state="aside-toggled" href="#"> <em class="fa fa-navicon"></em>
 
-                  </a>
+                    </a>
 
-               </li>
+                </li>
 
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
 
-               <li>
+                <li>
 
-                  <a title="搜索" data-search-open="" href="#">
+                    <a title="搜索" data-search-open="" href="#">
 
-                     <em class="icon-magnifier"></em>
+                        <em class="icon-magnifier"></em>
 
-                  </a>
+                    </a>
 
-               </li>
+                </li>
 
-               <li class="dropdown dropdown-list">
+                <li class="dropdown dropdown-list">
 
-                  <a title="消息通知" data-toggle="dropdown" href="#">
+                    <a title="消息通知" data-toggle="dropdown" href="#">
 
-                     <em class="icon-bell"></em>
+                        <em class="icon-bell"></em>
 
-                     <!--<div class="label label-danger" th:if="${newAtMeCount gt 0 or newCommentMeCount gt 0 or newPraiseMeCount gt 0}" th:text="${newAtMeCount}+${newCommentMeCount}+${newPraiseMeCount}"></div>-->
-                     <div class="label label-danger" id="noticeNum"></div>
+                        <!--<div class="label label-danger" th:if="${newAtMeCount gt 0 or newCommentMeCount gt 0 or newPraiseMeCount gt 0}" th:text="${newAtMeCount}+${newCommentMeCount}+${newPraiseMeCount}"></div>-->
+                        <div class="label label-danger" id="noticeNum"></div>
 
-                  </a>
+                    </a>
 
-                  <ul class="dropdown-menu animated flipInX">
+                    <ul class="dropdown-menu animated flipInX">
 
-                     <li>
+                        <li>
 
-                        <div class="list-group">
+                            <div class="list-group">
 
-                           <a class="list-group-item" href="javascript:void(0);" onclick="showNotice('at')">
+                                <a class="list-group-item" href="javascript:void(0);" onclick="showNotice('at')">
 
-                              <div class="media-box">
+                                    <div class="media-box">
 
-                                 <div class="pull-left">
+                                        <div class="pull-left">
 
-                                    <em class="fa fa-at fa-2x text-info"></em>
+                                            <em class="fa fa-at fa-2x text-info"></em>
 
-                                 </div>
+                                        </div>
 
-                                 <div class="media-box-body clearfix">
+                                        <div class="media-box-body clearfix">
 
-                                    <p class="m0">@我的</p>
+                                            <p class="m0">@我的</p>
 
-                                    <p class="m0 text-muted">
+                                            <p class="m0 text-muted">
 
-                                       <small id="atMeNewNotice"></small>
-                                        <input type="hidden" id="newAtMeCount"/>
-                                    </p>
+                                                <small id="atMeNewNotice"></small>
+                                                <input type="hidden" id="newAtMeCount"/>
+                                            </p>
 
-                                 </div>
+                                        </div>
 
-                              </div>
+                                    </div>
 
-                           </a>
+                                </a>
 
-                            <a class="list-group-item" href="javascript:void(0);" onclick="showNotice('comment')">
+                                <a class="list-group-item" href="javascript:void(0);" onclick="showNotice('comment')">
 
-                              <div class="media-box">
+                                    <div class="media-box">
 
-                                 <div class="pull-left">
+                                        <div class="pull-left">
 
-                                    <em class="fa fa-comment fa-2x text-warning"></em>
+                                            <em class="fa fa-comment fa-2x text-warning"></em>
 
-                                 </div>
+                                        </div>
 
-                                 <div class="media-box-body clearfix">
+                                        <div class="media-box-body clearfix">
 
-                                    <p class="m0">评论我的</p>
+                                            <p class="m0">评论我的</p>
 
-                                    <p class="m0 text-muted">
+                                            <p class="m0 text-muted">
 
-                                       <small id="commentMeNewNotice"></small>
-                                       <input type="hidden" id="newCommentMeCount" />
+                                                <small id="commentMeNewNotice"></small>
+                                                <input type="hidden" id="newCommentMeCount"/>
 
-                                    </p>
+                                            </p>
 
-                                 </div>
+                                        </div>
 
-                              </div>
+                                    </div>
 
-                           </a>
+                                </a>
 
-                            <a class="list-group-item" href="javascript:void(0);" onclick="showNotice('praise')">
+                                <a class="list-group-item" href="javascript:void(0);" onclick="showNotice('praise')">
 
-                              <div class="media-box">
+                                    <div class="media-box">
 
-                                 <div class="pull-left">
+                                        <div class="pull-left">
 
-                                    <em class="fa fa-thumbs-up fa-2x text-success"></em>
+                                            <em class="fa fa-thumbs-up fa-2x text-success"></em>
 
-                                 </div>
+                                        </div>
 
-                                 <div class="media-box-body clearfix">
+                                        <div class="media-box-body clearfix">
 
-                                    <p class="m0">赞我的</p>
+                                            <p class="m0">赞我的</p>
 
-                                    <p class="m0 text-muted">
+                                            <p class="m0 text-muted">
 
-                                       <small id="praiseMeNewNotice"></small>
+                                                <small id="praiseMeNewNotice"></small>
 
-                                       <input id="newPraiseMeCounts" type="hidden" />
+                                                <input id="newPraiseMeCounts" type="hidden"/>
 
-                                    </p>
+                                            </p>
 
-                                 </div>
+                                        </div>
 
-                              </div>
+                                    </div>
 
-                           </a>
+                                </a>
 
 
-                           <a class="list-group-item" href="javascript:void(0);" onclick="showNotice('letter')">                              <div class="media-box">
+                                <a class="list-group-item" href="javascript:void(0);" onclick="showNotice('letter')">
+                                    <div class="media-box">
 
-                                 <div class="pull-left">
+                                        <div class="pull-left">
 
-                                    <em class="fa fa-bell fa-2x text-danger"></em>
+                                            <em class="fa fa-bell fa-2x text-danger"></em>
 
-                                 </div>
+                                        </div>
 
-                                 <div class="media-box-body clearfix">
+                                        <div class="media-box-body clearfix">
 
-                                    <p class="m0">私信我的</p>
+                                            <p class="m0">私信我的</p>
 
-                                    <p class="m0 text-muted">
+                                            <p class="m0 text-muted">
 
-                                       <!--<small>0 新消息</small>-->
-                                       <small id="newLetterNotice"></small>
-                                       <input id="newLetterNoticeCount" type="hidden" />
-                                    </p>
+                                                <!--<small>0 新消息</small>-->
+                                                <small id="newLetterNotice"></small>
+                                                <input id="newLetterNoticeCount" type="hidden"/>
+                                            </p>
 
-                                 </div>
+                                        </div>
 
-                              </div>
+                                    </div>
 
-                           </a>
+                                </a>
 
-                        </div>
+                            </div>
 
-                     </li>
+                        </li>
 
-                  </ul>
+                    </ul>
 
-               </li>
+                </li>
 
-               <li>
+                <li>
 
-                  <a title="浏览记录" href="javascript:void(0);" onclick="locationUrl('/lookRecord/standard/my/0','lookRecord');">
+                    <a title="浏览记录" href="javascript:void(0);"
+                       onclick="locationUrl('/lookRecord/standard/my/0','lookRecord');">
 
-                     <em class="icon-clock"></em>
+                        <em class="icon-clock"></em>
 
-                  </a>
+                    </a>
 
-               </li>
+                </li>
 
-               <li>
+                <li>
 
-                  <a title="回收站" href="javascript:void(0);" onclick="locationUrl('/standard/garbage/0','garbage');">
+                    <a title="回收站" href="javascript:void(0);" onclick="locationUrl('/standard/garbage/0','garbage');">
 
-                     <em class="icon-trash"></em>
+                        <em class="icon-trash"></em>
 
-                  </a>
+                    </a>
 
-               </li>
+                </li>
 
-               <li>
+                <li>
 
-                  <a title="设置" data-no-persist="true" data-toggle-state="offsidebar-open" href="javascript:void(0);">
+                    <a title="设置" data-no-persist="true" data-toggle-state="offsidebar-open" href="javascript:void(0);">
 
-                     <em class="icon-settings"></em>
+                        <em class="icon-settings"></em>
 
-                  </a>
+                    </a>
 
-               </li>
+                </li>
 
             </ul>
 
-         </div>
+        </div>
 
-         <form class="navbar-form"  role="search">
+        <form class="navbar-form" role="search">
 
             <div class="form-group has-feedback">
 
-               <input id="searchKey" type="text" class="form-control" placeholder="输入并且按回车确定..." />
+                <input id="searchKey" type="text" class="form-control" placeholder="输入并且按回车确定..."/>
 
-               <div class="fa fa-times form-control-feedback" data-search-dismiss=""></div>
+                <div class="fa fa-times form-control-feedback" data-search-dismiss=""></div>
 
             </div>
 
-            <button  class="hidden btn btn-default" type="button" >提交</button>
+            <button class="hidden btn btn-default" type="button">提交</button>
 
-         </form>
+        </form>
 
-      </nav>
+    </nav>
 
-     <script type='text/javascript'>
-        document.onkeydown = function(e){ 
-            if(!e) e = window.event;//火狐中是 window.event 
-            if((e.keyCode || e.which) == 13){ 
-				window.event ? window.event.returnValue = false : e.preventDefault();
-	            var key=document.getElementById("searchKey").value;
-	   	    	 if(key!=''){
-	   	    	    locationUrl('/search/'+key,"");
-	   	    	 }
-            } 
-        } 
+    <script type='text/javascript'>
+        document.onkeydown = function (e) {
+            if (!e) e = window.event;//火狐中是 window.event
+            if ((e.keyCode || e.which) == 13) {
+                window.event ? window.event.returnValue = false : e.preventDefault();
+                var key = document.getElementById("searchKey").value;
+                if (key != '') {
+                    locationUrl('/search/' + key, "");
+                }
+            }
+        }
     </script>
 
-   </header>
+</header>
 
 </body>
 
