@@ -44,7 +44,7 @@ public class CommentController extends BaseController{
 	@RequestMapping(value="/add")
 	public Response add(Comment comment) {
 		User user = null;
-		if (comment.getContent().indexOf("@") > -1) {
+		if (comment.getContent().contains("@")) {
 			List<String> atUsers = StringUtil.getAtUser(comment.getContent());
 			if(atUsers!=null && atUsers.size()>0){
 				user = userRepository.findByUserName(atUsers.get(0));

@@ -41,7 +41,7 @@ public class BaseController {
     }
     
     protected Long getUserId() {
-    	Long id=0l;
+    	Long id=0L;
     	User user=getUser();
     	if(user!=null){
     		id=user.getId();
@@ -69,8 +69,7 @@ public class BaseController {
     
     protected String getPwd(String password){
     	try {
-    		String pwd = MD5Util.encrypt(password+Const.PASSWORD_KEY);
-    		return pwd;
+            return MD5Util.encrypt(password+Const.PASSWORD_KEY);
 		} catch (Exception e) {
 			logger.error("密码加密异常：",e);
 		}
@@ -80,8 +79,7 @@ public class BaseController {
     protected String cookieSign(String value){
         try{
             value = value + Const.PASSWORD_KEY;
-            String sign = Des3EncryptionUtil.encode(Const.DES3_KEY,value);
-            return sign;
+            return Des3EncryptionUtil.encode(Const.DES3_KEY,value);
         }catch (Exception e){
             logger.error("cookie签名异常：",e);
         }

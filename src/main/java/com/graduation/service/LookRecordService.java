@@ -33,9 +33,6 @@ public class LookRecordService{
     @Autowired
     private CommentRepository commentRepository;
 
-    @Autowired
-    private CollectService collectService;
-
     public void saveLookRecord(Long userId,Long collectId) {
         if(userId != null && userId > 0 && collectId != null) {
             Integer count = lookRecordRepository.countByUserIdAndCollectId(userId, collectId);
@@ -62,10 +59,7 @@ public class LookRecordService{
     }
 
     public List<CollectSummary> getLookRecords(Long userId, Pageable pageable) {
-        Page<CollectView> views = null;
-
-        views = lookRecordRepository.findViewByUserId(userId, pageable);
-
+        Page<CollectView> views = lookRecordRepository.findViewByUserId(userId, pageable);
         return convertCollect(views,userId);
     }
 

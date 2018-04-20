@@ -272,8 +272,7 @@ public class CollectController extends BaseController{
 	 */
 	@RequestMapping(value="/detail/{id}")
 	public Collect detail(@PathVariable("id") long id) {
-		Collect collect=collectRepository.findOne(id);
-		return collect;
+		return collectRepository.findOne(id);
 	}
 	
 
@@ -296,7 +295,7 @@ public class CollectController extends BaseController{
 					  String favoritesName = entry.getKey();
 					  Favorites favorites = favoritesRepository.findByUserIdAndName(getUserId(), favoritesName);
 						if(null == favorites){
-							favorites = favoritesService.saveFavorites(getUserId(), 0l, favoritesName);
+							favorites = favoritesService.saveFavorites(getUserId(), 0L, favoritesName);
 						}
 						collectService.importHtml(entry.getValue(), favorites.getId(), getUserId(),type);
 				} 
@@ -309,7 +308,7 @@ public class CollectController extends BaseController{
 				// 全部导入到<导入自浏览器>收藏夹
 				Favorites favorites = favoritesRepository.findByUserIdAndName(getUserId(), "导入自浏览器");
 				if(null == favorites){
-					favorites = favoritesService.saveFavorites(getUserId(), 0l, "导入自浏览器");
+					favorites = favoritesService.saveFavorites(getUserId(), 0L, "导入自浏览器");
 				}
 				collectService.importHtml(map, favorites.getId(), getUserId(),type);
 			}

@@ -251,11 +251,7 @@ public class CollectService extends CacheService {
                 return true;
             } else {
                 List<Collect> list = collectRepository.findByFavoritesIdAndUrlAndUserIdAndIsDelete(favorites.getId(), collect.getUrl(), collect.getUserId(), IsDelete.NO);
-                if (null != list && list.size() > 0) {
-                    return false;
-                } else {
-                    return true;
-                }
+                return list == null || list.size() <= 0;
             }
         } else {
             if (collect.getId() != null) {
@@ -264,19 +260,11 @@ public class CollectService extends CacheService {
                     return true;
                 } else {
                     List<Collect> list = collectRepository.findByFavoritesIdAndUrlAndUserIdAndIsDelete(collect.getFavoritesId(), collect.getUrl(), collect.getUserId(), IsDelete.NO);
-                    if (null != list && list.size() > 0) {
-                        return false;
-                    } else {
-                        return true;
-                    }
+                    return list == null || list.size() <= 0;
                 }
             } else {
                 List<Collect> list = collectRepository.findByFavoritesIdAndUrlAndUserIdAndIsDelete(collect.getFavoritesId(), collect.getUrl(), collect.getUserId(), IsDelete.NO);
-                if (null != list && list.size() > 0) {
-                    return false;
-                } else {
-                    return true;
-                }
+                return list == null || list.size() <= 0;
             }
         }
     }

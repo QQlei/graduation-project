@@ -141,9 +141,9 @@ public class LookAroundService{
     private List<CollectSummary> convert(List objecArraytList) {
 
         List<CollectSummary> lists = new ArrayList<CollectSummary>();
-        for (int i = 0; i < objecArraytList.size(); i++) {
+        for (Object anObjecArraytList : objecArraytList) {
             CollectSummary entity = new CollectSummary();
-            Object[] obj = (Object[]) objecArraytList.get(i);
+            Object[] obj = (Object[]) anObjecArraytList;
             entity.setId(Long.parseLong(obj[0].toString()));
             entity.setTitle(obj[1] == null ? "" : obj[1].toString());
             entity.setUrl(obj[2] == null ? "" : obj[2].toString());

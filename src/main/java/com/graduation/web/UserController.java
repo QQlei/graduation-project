@@ -87,15 +87,15 @@ public class UserController extends BaseController {
 			String preUrl = "/";
 			if(null != getSession().getAttribute(Const.LAST_REFERER)){
 				preUrl = String.valueOf(getSession().getAttribute(Const.LAST_REFERER));
-				if(preUrl.indexOf("/collect?") < 0 && preUrl.indexOf("/lookAround/standard/") < 0
-						&& preUrl.indexOf("/lookAround/simple/") < 0){
+				if(!preUrl.contains("/collect?") && !preUrl.contains("/lookAround/standard/")
+						&& !preUrl.contains("/lookAround/simple/")){
 					preUrl = "/";
 				}
 			}
-			if(preUrl.indexOf("/lookAround/standard/") >= 0){
+			if(preUrl.contains("/lookAround/standard/")){
 				preUrl = "/lookAround/standard/ALL";
 			}
-			if(preUrl.indexOf("/lookAround/simple/") >= 0){
+			if(preUrl.contains("/lookAround/simple/")){
 				preUrl = "/lookAround/simple/ALL";
 			}
 			return new ResponseData(ExceptionMsg.SUCCESS, preUrl);
@@ -184,8 +184,7 @@ public class UserController extends BaseController {
 	@RequestMapping(value="/getFollows")
 	@LoggerManage(description="获取关注列表")
 	public List<String> getFollows() {
-		List<String> followList = followRepository.findByUserId(getUserId());
-		return followList;
+		return followRepository.findByUserId(getUserId());
 	}
 	
 	/**

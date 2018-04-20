@@ -68,7 +68,7 @@ public class NoticeController extends BaseController{
 	@RequestMapping(value="/getNoticeNum")
 	@LoggerManage(description="获取新消息数量")
 	public ResponseData getNoticeNum(){
-		Map<String,Long> result = new HashMap<String, Long>();
+		Map<String,Long> result = new HashMap<>();
 		Long newAtMeCount = noticeRepository.countByUserIdAndTypeAndReaded(getUserId(), "at", "unread");
 		Long newCommentMeCount = noticeRepository.countByUserIdAndTypeAndReaded(getUserId(), "comment", "unread");
 		Long newPraiseMeCount = noticeRepository.countPraiseByUserIdAndReaded(getUserId(), "unread");
