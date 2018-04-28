@@ -1,4 +1,4 @@
-######  data config start ###### 
+######  data config start ######
 spring:
   jpa:
      properties:

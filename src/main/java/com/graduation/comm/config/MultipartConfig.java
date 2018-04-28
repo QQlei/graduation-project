@@ -7,9 +7,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
-*@ClassName: MultipartConfig
-*@Description: 
-*@author JiangL
+ * 配置上传文件最大限制
+ * @author JiangL
 */
 
 @Configuration
