@@ -34,17 +34,9 @@ forgotpassword:
   url: http://favorites.ren/newPassword
 
 static:
-  url: /usr/local/static
+  url: /work/graduation/src/main/resources/static/
 file:
   profilepictures:
-     url: file/profilepictures/
+     url: img/
   backgroundpictures:
      url: file/backgroundpictures/
-
-
-
-
-
-
-
-
