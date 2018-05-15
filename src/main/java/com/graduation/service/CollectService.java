@@ -373,7 +373,7 @@ public class CollectService extends CacheService {
                     // 保存消息通知
                     noticeService.saveNotice(String.valueOf(collect.getId()), "at", user.getId(), null);
                 } else {
-                    logger.info("为找到匹配：" + str + "的用户.");
+                    logger.info("未找到匹配：" + str + "的用户.");
                 }
             }
         }

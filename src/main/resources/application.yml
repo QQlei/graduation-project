@@ -37,6 +37,14 @@ static:
   url: /work/graduation/src/main/resources/static/
 file:
   profilepictures:
-     url: img/
+     url: img/headportrait/
   backgroundpictures:
-     url: file/backgroundpictures/
+     url: img/backgroundpictures/
+
+
+
+
+
+
+
+
